@@ -1,0 +1,476 @@
+name: pdf_editor
+description: A new Flutter project.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+  path_provider: ^2.0.14
+  webview_windows: ^0.2.2
+  file_picker: ^5.2.0+1
+  flutter_inappwebview: ^5.7.2+3
+  visibility_detector: ^0.3.3
+  flutter_keyboard_visibility: ^5.4.0
+  flex_color_picker: ^3.0.2
+  numberpicker: ^2.1.1
+  pointer_interceptor: ^0.9.3+3
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  assets:
+    - packages/pdf_editor/assets/build/pdf.js
+    - packages/pdf_editor/assets/build/pdf.js.map
+    - packages/pdf_editor/assets/build/pdf.sandbox.js
+    - packages/pdf_editor/assets/build/pdf.sandbox.js.map
+    - packages/pdf_editor/assets/build/pdf.worker.js
+    - packages/pdf_editor/assets/build/pdf.worker.js.map
+    - packages/pdf_editor/assets/web/debugger.css
+    - packages/pdf_editor/assets/web/debugger.js
+    - packages/pdf_editor/assets/web/viewer.css
+    - packages/pdf_editor/assets/web/viewer.html
+    - packages/pdf_editor/assets/web/viewer.js
+    - packages/pdf_editor/assets/web/viewer.js.map
+    - packages/pdf_editor/assets/web/cmaps/78-EUC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/78-EUC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/78-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/78-RKSJ-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/78-RKSJ-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/78-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/78ms-RKSJ-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/78ms-RKSJ-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/83pv-RKSJ-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/90ms-RKSJ-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/90ms-RKSJ-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/90msp-RKSJ-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/90msp-RKSJ-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/90pv-RKSJ-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/90pv-RKSJ-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Add-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Add-RKSJ-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Add-RKSJ-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Add-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-CNS1-0.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-CNS1-1.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-CNS1-2.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-CNS1-3.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-CNS1-4.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-CNS1-5.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-CNS1-6.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-CNS1-UCS2.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-GB1-0.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-GB1-1.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-GB1-2.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-GB1-3.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-GB1-4.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-GB1-5.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-GB1-UCS2.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Japan1-0.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Japan1-1.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Japan1-2.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Japan1-3.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Japan1-4.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Japan1-5.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Japan1-6.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Japan1-UCS2.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Korea1-0.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Korea1-1.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Korea1-2.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Adobe-Korea1-UCS2.bcmap
+    - packages/pdf_editor/assets/web/cmaps/B5-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/B5-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/B5pc-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/B5pc-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/CNS-EUC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/CNS-EUC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/CNS1-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/CNS1-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/CNS2-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/CNS2-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/ETen-B5-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/ETen-B5-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/ETenms-B5-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/ETenms-B5-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/ETHK-B5-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/ETHK-B5-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/EUC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/EUC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Ext-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Ext-RKSJ-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Ext-RKSJ-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Ext-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GB-EUC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GB-EUC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GB-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GB-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBK-EUC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBK-EUC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBK2K-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBK2K-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBKp-EUC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBKp-EUC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBpc-EUC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBpc-EUC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBT-EUC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBT-EUC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBT-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBT-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBTpc-EUC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/GBTpc-EUC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Hankaku.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Hiragana.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKdla-B5-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKdla-B5-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKdlb-B5-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKdlb-B5-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKgccs-B5-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKgccs-B5-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKm314-B5-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKm314-B5-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKm471-B5-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKm471-B5-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKscs-B5-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/HKscs-B5-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Katakana.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSC-EUC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSC-EUC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSC-Johab-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSC-Johab-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSCms-UHC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSCms-UHC-HW-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSCms-UHC-HW-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSCms-UHC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSCpc-EUC-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/KSCpc-EUC-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/LICENSE
+    - packages/pdf_editor/assets/web/cmaps/NWP-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/NWP-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/RKSJ-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/RKSJ-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/Roman.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniCNS-UCS2-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniCNS-UCS2-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniCNS-UTF16-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniCNS-UTF16-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniCNS-UTF32-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniCNS-UTF32-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniCNS-UTF8-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniCNS-UTF8-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniGB-UCS2-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniGB-UCS2-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniGB-UTF16-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniGB-UTF16-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniGB-UTF32-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniGB-UTF32-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniGB-UTF8-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniGB-UTF8-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS-UCS2-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS-UCS2-HW-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS-UCS2-HW-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS-UCS2-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS-UTF16-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS-UTF16-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS-UTF32-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS-UTF32-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS-UTF8-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS-UTF8-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS2004-UTF16-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS2004-UTF16-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS2004-UTF32-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS2004-UTF32-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS2004-UTF8-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJIS2004-UTF8-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJISPro-UCS2-HW-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJISPro-UCS2-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJISPro-UTF8-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJISX0213-UTF32-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJISX0213-UTF32-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJISX02132004-UTF32-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniJISX02132004-UTF32-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniKS-UCS2-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniKS-UCS2-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniKS-UTF16-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniKS-UTF16-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniKS-UTF32-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniKS-UTF32-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniKS-UTF8-H.bcmap
+    - packages/pdf_editor/assets/web/cmaps/UniKS-UTF8-V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/V.bcmap
+    - packages/pdf_editor/assets/web/cmaps/WP-Symbol.bcmap
+    - packages/pdf_editor/assets/web/images/annotation-check.svg
+    - packages/pdf_editor/assets/web/images/annotation-comment.svg
+    - packages/pdf_editor/assets/web/images/annotation-help.svg
+    - packages/pdf_editor/assets/web/images/annotation-insert.svg
+    - packages/pdf_editor/assets/web/images/annotation-key.svg
+    - packages/pdf_editor/assets/web/images/annotation-newparagraph.svg
+    - packages/pdf_editor/assets/web/images/annotation-noicon.svg
+    - packages/pdf_editor/assets/web/images/annotation-note.svg
+    - packages/pdf_editor/assets/web/images/annotation-paperclip.svg
+    - packages/pdf_editor/assets/web/images/annotation-paragraph.svg
+    - packages/pdf_editor/assets/web/images/annotation-pushpin.svg
+    - packages/pdf_editor/assets/web/images/cursor-editorFreeText.svg
+    - packages/pdf_editor/assets/web/images/cursor-editorInk.svg
+    - packages/pdf_editor/assets/web/images/findbarButton-next.svg
+    - packages/pdf_editor/assets/web/images/findbarButton-previous.svg
+    - packages/pdf_editor/assets/web/images/loading-dark.svg
+    - packages/pdf_editor/assets/web/images/loading-icon.gif
+    - packages/pdf_editor/assets/web/images/loading.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-documentProperties.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-firstPage.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-handTool.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-lastPage.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-rotateCcw.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-rotateCw.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-scrollHorizontal.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-scrollPage.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-scrollVertical.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-scrollWrapped.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-selectTool.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-spreadEven.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-spreadNone.svg
+    - packages/pdf_editor/assets/web/images/secondaryToolbarButton-spreadOdd.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-bookmark.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-currentOutlineItem.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-download.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-editorFreeText.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-editorInk.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-menuArrow.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-openFile.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-pageDown.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-pageUp.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-presentationMode.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-print.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-search.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-secondaryToolbarToggle.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-sidebarToggle.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-viewAttachments.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-viewLayers.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-viewOutline.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-viewThumbnail.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-zoomIn.svg
+    - packages/pdf_editor/assets/web/images/toolbarButton-zoomOut.svg
+    - packages/pdf_editor/assets/web/images/treeitem-collapsed.svg
+    - packages/pdf_editor/assets/web/images/treeitem-expanded.svg
+    - packages/pdf_editor/assets/web/locale/locale.properties
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitDingbats.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitFixed.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitFixedBold.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitFixedBoldItalic.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitFixedItalic.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitSans.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitSansBold.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitSansBoldItalic.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitSansItalic.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitSerif.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitSerifBold.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitSerifBoldItalic.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitSerifItalic.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/FoxitSymbol.pfb
+    - packages/pdf_editor/assets/web/standard_fonts/LiberationSans-Bold.ttf
+    - packages/pdf_editor/assets/web/standard_fonts/LiberationSans-BoldItalic.ttf
+    - packages/pdf_editor/assets/web/standard_fonts/LiberationSans-Italic.ttf
+    - packages/pdf_editor/assets/web/standard_fonts/LiberationSans-Regular.ttf
+    - packages/pdf_editor/assets/web/standard_fonts/LICENSE_FOXIT
+    - packages/pdf_editor/assets/web/standard_fonts/LICENSE_LIBERATION
+    - packages/pdf_editor/assets/web/locale/ach/viewer.properties
+    - packages/pdf_editor/assets/web/locale/af/viewer.properties
+    - packages/pdf_editor/assets/web/locale/an/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ar/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ast/viewer.properties
+    - packages/pdf_editor/assets/web/locale/az/viewer.properties
+    - packages/pdf_editor/assets/web/locale/be/viewer.properties
+    - packages/pdf_editor/assets/web/locale/bg/viewer.properties
+    - packages/pdf_editor/assets/web/locale/bn/viewer.properties
+    - packages/pdf_editor/assets/web/locale/bo/viewer.properties
+    - packages/pdf_editor/assets/web/locale/br/viewer.properties
+    - packages/pdf_editor/assets/web/locale/brx/viewer.properties
+    - packages/pdf_editor/assets/web/locale/bs/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ca/viewer.properties
+    - packages/pdf_editor/assets/web/locale/cak/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ckb/viewer.properties
+    - packages/pdf_editor/assets/web/locale/cs/viewer.properties
+    - packages/pdf_editor/assets/web/locale/cy/viewer.properties
+    - packages/pdf_editor/assets/web/locale/da/viewer.properties
+    - packages/pdf_editor/assets/web/locale/de/viewer.properties
+    - packages/pdf_editor/assets/web/locale/dsb/viewer.properties
+    - packages/pdf_editor/assets/web/locale/el/viewer.properties
+    - packages/pdf_editor/assets/web/locale/en-CA/viewer.properties
+    - packages/pdf_editor/assets/web/locale/en-GB/viewer.properties
+    - packages/pdf_editor/assets/web/locale/en-US/viewer.properties
+    - packages/pdf_editor/assets/web/locale/eo/viewer.properties
+    - packages/pdf_editor/assets/web/locale/es-AR/viewer.properties
+    - packages/pdf_editor/assets/web/locale/es-CL/viewer.properties
+    - packages/pdf_editor/assets/web/locale/es-ES/viewer.properties
+    - packages/pdf_editor/assets/web/locale/es-MX/viewer.properties
+    - packages/pdf_editor/assets/web/locale/et/viewer.properties
+    - packages/pdf_editor/assets/web/locale/eu/viewer.properties
+    - packages/pdf_editor/assets/web/locale/fa/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ff/viewer.properties
+    - packages/pdf_editor/assets/web/locale/fi/viewer.properties
+    - packages/pdf_editor/assets/web/locale/fr/viewer.properties
+    - packages/pdf_editor/assets/web/locale/fur/viewer.properties
+    - packages/pdf_editor/assets/web/locale/fy-NL/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ga-IE/viewer.properties
+    - packages/pdf_editor/assets/web/locale/gd/viewer.properties
+    - packages/pdf_editor/assets/web/locale/gl/viewer.properties
+    - packages/pdf_editor/assets/web/locale/gn/viewer.properties
+    - packages/pdf_editor/assets/web/locale/gu-IN/viewer.properties
+    - packages/pdf_editor/assets/web/locale/he/viewer.properties
+    - packages/pdf_editor/assets/web/locale/hi-IN/viewer.properties
+    - packages/pdf_editor/assets/web/locale/hr/viewer.properties
+    - packages/pdf_editor/assets/web/locale/hsb/viewer.properties
+    - packages/pdf_editor/assets/web/locale/hu/viewer.properties
+    - packages/pdf_editor/assets/web/locale/hy-AM/viewer.properties
+    - packages/pdf_editor/assets/web/locale/hye/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ia/viewer.properties
+    - packages/pdf_editor/assets/web/locale/id/viewer.properties
+    - packages/pdf_editor/assets/web/locale/is/viewer.properties
+    - packages/pdf_editor/assets/web/locale/it/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ja/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ka/viewer.properties
+    - packages/pdf_editor/assets/web/locale/kab/viewer.properties
+    - packages/pdf_editor/assets/web/locale/kk/viewer.properties
+    - packages/pdf_editor/assets/web/locale/km/viewer.properties
+    - packages/pdf_editor/assets/web/locale/kn/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ko/viewer.properties
+    - packages/pdf_editor/assets/web/locale/lij/viewer.properties
+    - packages/pdf_editor/assets/web/locale/lo/viewer.properties
+    - packages/pdf_editor/assets/web/locale/lt/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ltg/viewer.properties
+    - packages/pdf_editor/assets/web/locale/lv/viewer.properties
+    - packages/pdf_editor/assets/web/locale/meh/viewer.properties
+    - packages/pdf_editor/assets/web/locale/mk/viewer.properties
+    - packages/pdf_editor/assets/web/locale/mr/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ms/viewer.properties
+    - packages/pdf_editor/assets/web/locale/my/viewer.properties
+    - packages/pdf_editor/assets/web/locale/nb-NO/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ne-NP/viewer.properties
+    - packages/pdf_editor/assets/web/locale/nl/viewer.properties
+    - packages/pdf_editor/assets/web/locale/nn-NO/viewer.properties
+    - packages/pdf_editor/assets/web/locale/oc/viewer.properties
+    - packages/pdf_editor/assets/web/locale/pa-IN/viewer.properties
+    - packages/pdf_editor/assets/web/locale/pl/viewer.properties
+    - packages/pdf_editor/assets/web/locale/pt-BR/viewer.properties
+    - packages/pdf_editor/assets/web/locale/pt-PT/viewer.properties
+    - packages/pdf_editor/assets/web/locale/rm/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ro/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ru/viewer.properties
+    - packages/pdf_editor/assets/web/locale/sat/viewer.properties
+    - packages/pdf_editor/assets/web/locale/sc/viewer.properties
+    - packages/pdf_editor/assets/web/locale/scn/viewer.properties
+    - packages/pdf_editor/assets/web/locale/sco/viewer.properties
+    - packages/pdf_editor/assets/web/locale/si/viewer.properties
+    - packages/pdf_editor/assets/web/locale/sk/viewer.properties
+    - packages/pdf_editor/assets/web/locale/skr/viewer.properties
+    - packages/pdf_editor/assets/web/locale/sl/viewer.properties
+    - packages/pdf_editor/assets/web/locale/son/viewer.properties
+    - packages/pdf_editor/assets/web/locale/sq/viewer.properties
+    - packages/pdf_editor/assets/web/locale/sr/viewer.properties
+    - packages/pdf_editor/assets/web/locale/sv-SE/viewer.properties
+    - packages/pdf_editor/assets/web/locale/szl/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ta/viewer.properties
+    - packages/pdf_editor/assets/web/locale/te/viewer.properties
+    - packages/pdf_editor/assets/web/locale/tg/viewer.properties
+    - packages/pdf_editor/assets/web/locale/th/viewer.properties
+    - packages/pdf_editor/assets/web/locale/tl/viewer.properties
+    - packages/pdf_editor/assets/web/locale/tr/viewer.properties
+    - packages/pdf_editor/assets/web/locale/trs/viewer.properties
+    - packages/pdf_editor/assets/web/locale/uk/viewer.properties
+    - packages/pdf_editor/assets/web/locale/ur/viewer.properties
+    - packages/pdf_editor/assets/web/locale/uz/viewer.properties
+    - packages/pdf_editor/assets/web/locale/vi/viewer.properties
+    - packages/pdf_editor/assets/web/locale/wo/viewer.properties
+    - packages/pdf_editor/assets/web/locale/xh/viewer.properties
+    - packages/pdf_editor/assets/web/locale/zh-CN/viewer.properties
+    - packages/pdf_editor/assets/web/locale/zh-TW/viewer.properties
+    - packages/pdf_editor/assets/pdf-lib/pdf-lib.esm.js
+    - packages/pdf_editor/assets/pdf-lib/pdf-lib.esm.js.map
+    - packages/pdf_editor/assets/pdf-lib/pdf-lib.esm.min.js
+    - packages/pdf_editor/assets/pdf-lib/pdf-lib.esm.min.js.map
+    - packages/pdf_editor/assets/pdf-lib/pdf-lib.js
+    - packages/pdf_editor/assets/pdf-lib/pdf-lib.js.map
+    - packages/pdf_editor/assets/pdf-lib/pdf-lib.min.js
+    - packages/pdf_editor/assets/pdf-lib/pdf-lib.min.js.map
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
